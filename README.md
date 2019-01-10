@@ -17,6 +17,7 @@ $ cd ..
 $ mkdir apps && cd apps
 $ git clone git@github.com:uk-lkl/boot.git
 $ cd boot
-$ make menuconfig # configure boot
+$ make menuconfig
+# Default heap size must be larger than 128
 $ make
 ```
