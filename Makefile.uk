@@ -1,0 +1,8 @@
+$(eval $(call addlib,appboot))
+
+APPBOOT_SRCS-y += $(APPBOOT_BASE)/boot.c
+APPBOOT_SRCS-y += $(APPBOOT_BASE)/test.c
+
+APPBOOT_CFLAGS-y += -D__FIBER__
+
+APPBOOT_CINCLUDES += $(APPBOOT_BASE)
