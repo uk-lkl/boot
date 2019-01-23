@@ -12,7 +12,7 @@ $ cd unikraft
 $ git clone git@github.com:uk-lkl/unikraft.git --branch=retrage/lkl-v2
 $ mkdir libs && cd libs
 $ git clone git@github.com:uk-lkl/newlib.git --branch=retrage/fix
-$ git clone --recursive git@github.com:uk-lkl/lkl.git --branch=retrage/uk
+$ git clone --recursive git@github.com:uk-lkl/lkl.git
 $ cd ..
 $ mkdir apps && cd apps
 $ git clone git@github.com:uk-lkl/boot.git
