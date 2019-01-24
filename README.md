@@ -24,7 +24,7 @@ $ make menuconfig
 # For Linux user space, default heap size must be larger than 128MB
 $ make
 # For x86/linuxu,
-$ ./build/boot\_linuxu-x86\_64
+$ ./build/boot_linuxu-x86_64
 # For x86/kvm,
 $ ./run.sh
 ```
@@ -39,5 +39,5 @@ To debug for x86/kvm,
 # Disable "Strip final image"
 $ ./debug.sh
 # In another console,
-$ gdb ./build/boot\_kvm-x86\_64
+$ gdb ./build/boot_kvm-x86_64
 ```
