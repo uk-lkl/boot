@@ -558,8 +558,6 @@ int main(int argc, const char **argv)
 {
 	lkl_host_ops.print = lkl_test_log;
 
-        lkl_thread_init();
-
 	return lkl_test_run(tests, sizeof(tests)/sizeof(struct lkl_test),
 			    "boot");
 }
