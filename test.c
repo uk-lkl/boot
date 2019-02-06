@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdarg.h>
-#include <time.h>
+#include <uk/plat/time.h>
 
 #include "test.h"
 
@@ -45,7 +45,7 @@ static void print_log(void)
 int lkl_test_run(const struct lkl_test *tests, int nr, const char *fmt, ...)
 {
 	int i, ret, status = TEST_SUCCESS;
-	clock_t start, stop;
+	__nsec start, stop;
 	char name[1024];
 	va_list args;
 
@@ -61,11 +61,11 @@ int lkl_test_run(const struct lkl_test *tests, int nr, const char *fmt, ...)
 		printf("* %d %s\n", i, t->name);
 		fflush(stdout);
 
-		start = clock();
+		start = ukplat_monotonic_clock();
 
 		ret = t->fn(t->arg1, t->arg2, t->arg3);
 
-		stop = clock();
+		stop = ukplat_monotonic_clock();
 
 		switch (ret) {
 		case TEST_SUCCESS:
@@ -85,7 +85,7 @@ int lkl_test_run(const struct lkl_test *tests, int nr, const char *fmt, ...)
 		}
 
 		printf(" ---\n");
-		delta_us = (stop - start) * 1000000 / CLOCKS_PER_SEC;
+		delta_us = (stop - start) / 1000;
 		printf(" time_us: %ld\n", delta_us);
 		print_log();
 		printf(" ...\n");
