@@ -9,15 +9,6 @@
 
 #include <sys/stat.h>
 #include <fcntl.h>
-#if defined(__FreeBSD__)
-#include <net/if.h>
-#include <sys/ioctl.h>
-#elif __linux__
-#include <sys/epoll.h>
-#include <sys/ioctl.h>
-#elif __MINGW32__
-#include <windows.h>
-#endif
 
 #include "test.h"
 
@@ -79,11 +70,6 @@ void check_latency(long (*f)(void), long *min, long *max, long *avg)
 
 static long native_getpid(void)
 {
-#ifdef __MINGW32__
-	GetCurrentProcessId();
-#else
-	getpid();
-#endif
 	return 0;
 }
 
@@ -398,6 +384,7 @@ static int lkl_test_gettid(void)
 	}
 }
 
+#if 0
 static void test_thread(void *data)
 {
 	int *pipe_fds = (int*) data;
@@ -451,6 +438,7 @@ static int lkl_test_syscall_thread(void)
 
 	return TEST_SUCCESS;
 }
+#endif
 
 #ifndef __MINGW32__
 static void thread_get_pid(void *unused)

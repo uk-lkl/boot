@@ -3,6 +3,5 @@ config APPBOOT_DEPENDENCIES
 	bool
 	default y
 	select LIBLKL
-	select LIBNEWLIBC
 
 ### App configuration
